@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" 
+
+<head>
+    <meta charset="utf-8">
+    <title>Movie recommendations</title>
+    <link rel="stylesheet" href="/static/styling_with_ccs.css"> 
+</head>
+<body>
+    <h1> Welcome to my Movie Recommender </h1>
+    <img src="/static/WallpaperDog-11036502.jpg">
+    <h2>To get movie recommendations please do the following:</h2>
+    <ul>
+        <li>Enter method</li>
+        <li>Enter a movie title</li>
+        <li>Enter a rating between 0 and 5</li>
+        <li>Click on the submit button</li>
+    </ul>
+    
+    <form action="/recommender">
+        <select name="method">
+            <option>random</option>
+            <option>popular</option>
+            <option>cluster</option>
+            <option>factor</option>
+        </select>
+        <br>
+        <br>
+        {% for i in range(3)%}
+        <input type="text"
+               name="title"
+               placeholder="Movie title"
+               required
+               list="movies"
+        </input>
+    
+         <input type="text"
+               name="rating"
+               placeholder="1-5"
+               required
+        </input>
+        <br>
+        <br>
+        {% endfor %}
+    
+        <button type="submit">Show Recommendations</button>
+    
+    </form>
+    <datalist id="movies">
+        {% for movie in movies%}
+        <option value="{{movie}}"></option>
+        {% endfor %}
+    
+    </datalist>
+    <br>
+    <br>
+    <a href="/recommender">Go to recommender</a>
+    <br>
+    <br>
+    <br>
+    <a href="https://www.w3schools.com/">Click here to learn more about html and other languages</a>
+</body>
+</html>

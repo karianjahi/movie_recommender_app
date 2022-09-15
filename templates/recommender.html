@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"
+    <head>
+        <meta charset="utf-8">
+        <title>Movie recommendations</title>
+        <link rel="stylesheet" href="/static/styling_with_ccs.css">
+    </head>
+    <body>
+        <img src="/static/WallpaperDog-11036502.jpg">
+        <h1>{{message}}</h1>
+        <ol>
+            {% for rec in recs %}
+            <li>{{rec}}</li>
+            <br>
+            {% endfor %}
+        </ol>
+        <br>
+        <a href="/">Go to main page</a>
+    </body>
+</html>
