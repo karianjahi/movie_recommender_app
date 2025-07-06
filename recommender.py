@@ -36,16 +36,27 @@ class MovieRecommender:
         if self.method in {"random", "popular", "cluster", "factor"}:
             return f"The following movies have been recommended based on method '{self.method}:'"
 
+    # def get_recommendations(self):
+    #     user_rating_dict = list_to_dict(self.rated_movies, self.ratings)
+    #     if self.method == "random":
+    #         return get_random_movies()[: self.n_movies]
+    #     if self.method == "popular":
+    #         return get_popular_movies(user_rating_dict)[: self.n_movies]
+    #     if self.method == "cluster":
+    #         return get_cluster_movies(user_rating_dict)[: self.n_movies]
+    #     if self.method == "factor":
+    #         return get_nmf_movies(user_rating_dict)[: self.n_movies]
+    
     def get_recommendations(self):
         user_rating_dict = list_to_dict(self.rated_movies, self.ratings)
-        if self.method == "random":
-            return get_random_movies()[: self.n_movies]
-        if self.method == "popular":
-            return get_popular_movies(user_rating_dict)[: self.n_movies]
-        if self.method == "cluster":
-            return get_cluster_movies(user_rating_dict)[: self.n_movies]
-        if self.method == "factor":
-            return get_nmf_movies(user_rating_dict)[: self.n_movies]
+        method_function_map = {
+            "random": lambda: get_random_movies(),
+            "popular": lambda: get_popular_movies(user_rating_dict),
+            "cluster": lambda: get_cluster_movies(user_rating_dict),
+            "factor": lambda: get_nmf_movies(user_rating_dict),
+        }
+        if self.method in method_function_map:
+            return method_function_map[self.method]()[: self.n_movies]
 
 
 if __name__ == "__main__":
