@@ -27,22 +27,11 @@
         <br>
         <br>
         {% for i in range(3)%}
-        <input type="text"
-               name="title"
-               placeholder="Movie title"
-               required
-               list="movies"
-        </input>
-    
-         <input type="text"
-               name="rating"
-               placeholder="1-5"
-               required
-        </input>
+        <input type="text" name="title" placeholder="Movie title" required list="movies"</input>
+         <input type="text" name="rating"  placeholder="1-5" required </input>
         <br>
         <br>
         {% endfor %}
-    
         <button type="submit">Show Recommendations</button>
     
     </form>
