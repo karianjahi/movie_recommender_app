@@ -112,7 +112,7 @@ heroku open
 This project is licensed under the MIT License.
 
 ## 🙋‍♂️ Author
-Dr.rer.nat Joseph Karianjahi Njeri
+### Dr.rer.nat Joseph Karianjahi Njeri
 
 If you'd like to contribute or offer feedback, feel free to open an issue or submit a pull request.
 
