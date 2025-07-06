@@ -17,20 +17,24 @@ class MovieRecommender:
     def __repr__(self):
         return f'Recommend movies based on method "{self.method}" '
 
+    # def create_message_for_webserver(self):
+    #     general_message = "The following movies have been recommended based on method "
+
+    #     if self.method == "random":
+    #         return f"{general_message}'{self.method}:'"
+
+    #     if self.method == "popular":
+    #         return f"{general_message}'{self.method}:'"
+
+    #     if self.method == "cluster":
+    #         return f"{general_message}'{self.method}:'"
+
+    #     if self.method == "factor":
+    #         return f"{general_message}'{self.method}:'"
+    
     def create_message_for_webserver(self):
-        general_message = "The following movies have been recommended based on method "
-
-        if self.method == "random":
-            return f"{general_message}'{self.method}:'"
-
-        if self.method == "popular":
-            return f"{general_message}'{self.method}:'"
-
-        if self.method == "cluster":
-            return f"{general_message}'{self.method}:'"
-
-        if self.method == "factor":
-            return f"{general_message}'{self.method}:'"
+        if self.method in {"random", "popular", "cluster", "factor"}:
+            return f"The following movies have been recommended based on method '{self.method}:'"
 
     def get_recommendations(self):
         user_rating_dict = list_to_dict(self.rated_movies, self.ratings)
